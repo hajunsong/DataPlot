@@ -1,0 +1,7 @@
+*.user
+*.*.user
+[Dd]ebug
+[Rr]elease
+[Rr]eleases
+*.autosave
+*.*.autosave
