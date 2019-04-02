@@ -14,6 +14,8 @@
 
 #include <iostream>
 #include <stdio.h>
+#include <vector>
+using namespace std;
 
 #include "qcustomplot.h"
 
@@ -25,6 +27,8 @@ public:
     QCheckBox *check;
     QSpinBox *spin;
     QCustomPlot *plot;
+    QVector<double> data;
+    int row, col, indx;
 };
 
 namespace Ui {
@@ -41,7 +45,8 @@ public:
 
 private slots:
     void btnSearchClicked();
-    void on_sbNum_valueChanged(int arg1);
+    void btnRunClicked();
+    void sbValueChanged(int arg1);
 
 private:
     Ui::MainWindow *ui;
