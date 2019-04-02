@@ -2,8 +2,6 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <iostream>
-#include <stdio.h>
 #include <QPushButton>
 #include <QFileDialog>
 #include <QtDebug>
@@ -12,7 +10,22 @@
 #include <QLineEdit>
 #include <QCheckBox>
 #include <QSpinBox>
+#include <QGridLayout>
+
+#include <iostream>
+#include <stdio.h>
+
 #include "qcustomplot.h"
+
+class Group{
+public:
+    QGroupBox *gb;
+    QPushButton *btn;
+    QLineEdit *txt;
+    QCheckBox *check;
+    QSpinBox *spin;
+    QCustomPlot *plot;
+};
 
 namespace Ui {
 class MainWindow;
@@ -26,18 +39,17 @@ public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-public slots:
-
 private slots:
     void btnSearchClicked();
     void on_sbNum_valueChanged(int arg1);
 
 private:
     Ui::MainWindow *ui;
-    QVector<QCustomPlot> *plot;
     QPushButton *btnRun;
     QPushButton *btnSearch;
-    QVector<QGroupBox> *gb;
+    QVector<Group*> gVector;
+
+    void addGroupBox(QVector<Group*> *gVector);
 };
 
 #endif // MAINWINDOW_H
